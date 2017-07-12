@@ -43,7 +43,7 @@ if is_inflating&&any_inflate %if already inflating, and want to keep inflating
         end
     else %is a control trial
         if acc_inflate_time > state.ctrltime %success! bank reward
-            mark_event('stop inflating',plx,3);
+            mark_event('stop inflating',24);
             inflate_time=GetSecs-inflate_start_time;
             inflate_stop_time=GetSecs;
             result='banked';
@@ -59,7 +59,7 @@ if is_inflating&&any_inflate %if already inflating, and want to keep inflating
     
     
 elseif ~is_inflating&&any_inflate %if not already inflating...
-    mark_event('start inflating',plx,2);
+    mark_event('start inflating',23);
     rt=GetSecs-trial_start_time;
     inflate_start_time=GetSecs;
     last_inflate_time=inflate_start_time;
@@ -70,13 +70,12 @@ elseif ~is_inflating&&any_inflate %if not already inflating...
     PsychPortAudio('Start',pahandle,1.5*max(maxtimes)); %repeat an obscene number of times, until stopped
     
 elseif is_inflating&&~any_inflate %if already inflating, but no inflate input
-    mark_event('stop inflating',plx,3);
+    mark_event('stop inflating',24);
     inflate_time=GetSecs-inflate_start_time;
     inflate_stop_time=GetSecs;
     result='banked';
     is_inflating=0; %stop inflating
-    keep_waiting=0;
-    
+    keep_waiting=0;    
 end
 
 if stopnow

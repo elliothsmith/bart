@@ -51,7 +51,7 @@ if is_inflating&&~any_inflate %if already inflating, but no inflate input...
         end
     else %if is a control trial...
         if acc_inflate_time > state.ctrltime %success! bank reward
-            mark_event('stop inflating',plx,3);
+            mark_event('stop inflating',23);
             inflate_time=GetSecs-inflate_start_time;
             inflate_stop_time=GetSecs;
             result='banked';
@@ -68,7 +68,7 @@ if is_inflating&&~any_inflate %if already inflating, but no inflate input...
 elseif ~is_control&&is_inflating&&any_inflate %if already inflating, and any inflate start key pressed...
     %...also, if it's a control trial, don't let inflation stop
     %stop inflation
-    mark_event('stop inflating',plx,3);
+    mark_event('stop inflating',24);
     inflate_time=GetSecs-inflate_start_time;
     inflate_stop_time=GetSecs;
     result='banked';
@@ -76,7 +76,7 @@ elseif ~is_control&&is_inflating&&any_inflate %if already inflating, and any inf
     keep_waiting=0;  
     
 elseif ~is_inflating&&any_inflate %if not already inflating...
-    mark_event('start inflating',plx,2);
+    mark_event('start inflating',23);
     rt=GetSecs-trial_start_time;
     inflate_start_time=GetSecs;
     last_inflate_time=inflate_start_time;

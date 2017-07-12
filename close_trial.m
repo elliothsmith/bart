@@ -10,7 +10,7 @@ curtime=GetSecs;
 %         while (GetSecs-curtime < (iti+rand*iti_jitter))
 %             esc_check();
 %         end;
-mark_event('trial_over',plx,8)
+mark_event('trial_over',150)
 
 %record data
 data(trialnum).this_balloon=this_balloon;

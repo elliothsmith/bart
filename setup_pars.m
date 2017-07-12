@@ -6,7 +6,7 @@
 %%%%%%%%%%%%%%%%% trial parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 trialnum=0;
 trialnumdp=0;
-numtrials=50000;
+numtrials=10000;
 continue_running=1; %loop parameter
 
 if exist('invars','var')
@@ -74,7 +74,7 @@ disp_outcome=0.75; %outcome display period (post-shrink, pop, or blank)
 disp_outcome_jitter=0.25;
 pop_dur=0.75; %how long does the pop last?
 bank_dur=1;%how long does "banking" take?
-flicker_freq=2; %frequency of pop screen flicker (Hz)
+flicker_freq=4; %frequency of pop screen flicker (Hz)
 score=0;
 state.score=0;
 rt=0;

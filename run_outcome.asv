@@ -15,7 +15,7 @@ switch result
         end
     case 'banked'
         state.rect=origin2+rad*[-1 -1 1 1];
-        mark_event('banked',25);
+        mark_event('banked',plx,4);
         PsychPortAudio('Stop',pahandle);
         PsychPortAudio('FillBuffer',pahandle,cashsnd');
         PsychPortAudio('Start',pahandle);
@@ -38,14 +38,14 @@ switch result
         score = score+state.pts;
         state.score=score;
         paint_screen(window,state,3)
-        mark_event('outcome',100);
+        mark_event('outcome',plx,6);
         WaitSecs(disp_outcome+rand*disp_outcome_jitter);
     case 'popped'
         state.rect=origin2+rad*[-1 -1 1 1];
         t_now=GetSecs;
         state.hsize=0;
         lostpts=state.pts;
-        mark_event('popped',26);
+        mark_event('popped',plx,5);
         PsychPortAudio('Stop',pahandle);
         PsychPortAudio('FillBuffer',pahandle,popsnd');
         PsychPortAudio('Start',pahandle);
@@ -60,6 +60,6 @@ switch result
         state.pts=0;
         state.bkgnd=[0 0 0];
         paint_screen(window,state,4)
-        mark_event('outcome',200);
+        mark_event('outcome',plx,6);
         WaitSecs(disp_outcome+rand*disp_outcome_jitter);
 end

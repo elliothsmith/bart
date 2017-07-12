@@ -92,6 +92,7 @@ try
     global data;
     data=[];
     
+    
     %initialize data io object
     global dio
     dio = digitalio('nidaq','Dev2');
@@ -106,6 +107,9 @@ try
     
     WaitSecs(1); %for some reason, PTB screws up Screen redraw the first time we use pause, so do it here
     trialnum=0;
+    
+	% set up global digital input output object
+	% initGlobalDIO('Dev2');
       
     %main task loop
     while continue_running
